@@ -1,4 +1,4 @@
-class AddDefaultLicenseToProject < ActiveRecord::Migration
+class AddDefaultLicenseToProject < ActiveRecord::Migration[7.2]
 
   def change
     add_column :projects,:default_license,:string

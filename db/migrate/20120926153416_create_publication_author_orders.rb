@@ -1,4 +1,4 @@
-class CreatePublicationAuthorOrders < ActiveRecord::Migration
+class CreatePublicationAuthorOrders < ActiveRecord::Migration[7.2]
   def self.up
     create_table :publication_author_orders do |t|
       t.integer :order

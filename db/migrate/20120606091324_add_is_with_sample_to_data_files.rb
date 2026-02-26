@@ -1,4 +1,4 @@
-class AddIsWithSampleToDataFiles < ActiveRecord::Migration
+class AddIsWithSampleToDataFiles < ActiveRecord::Migration[7.2]
   def self.up
     add_column :data_files, :is_with_sample, :boolean
     add_column :data_file_versions, :is_with_sample, :boolean

@@ -1,4 +1,4 @@
-class CreateSampleControlledVocabTerms < ActiveRecord::Migration
+class CreateSampleControlledVocabTerms < ActiveRecord::Migration[7.2]
   def change
     create_table :sample_controlled_vocab_terms do |t|
       t.string :label

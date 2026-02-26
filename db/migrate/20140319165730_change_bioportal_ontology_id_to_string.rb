@@ -1,4 +1,4 @@
-class ChangeBioportalOntologyIdToString < ActiveRecord::Migration
+class ChangeBioportalOntologyIdToString < ActiveRecord::Migration[7.2]
   def up
     change_column :bioportal_concepts, :ontology_id,:string
   end

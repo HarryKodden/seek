@@ -1,4 +1,4 @@
-class CreateSuggestedAssayTypes < ActiveRecord::Migration
+class CreateSuggestedAssayTypes < ActiveRecord::Migration[7.2]
   def change
     create_table :suggested_assay_types do |t|
       t.string :label

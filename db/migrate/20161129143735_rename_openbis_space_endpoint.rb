@@ -1,4 +1,4 @@
-class RenameOpenbisSpaceEndpoint < ActiveRecord::Migration
+class RenameOpenbisSpaceEndpoint < ActiveRecord::Migration[7.2]
 
   def up
     rename_column :openbis_spaces,:url,:as_endpoint

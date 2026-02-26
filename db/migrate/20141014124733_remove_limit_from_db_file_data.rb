@@ -1,4 +1,4 @@
-class RemoveLimitFromDbFileData < ActiveRecord::Migration
+class RemoveLimitFromDbFileData < ActiveRecord::Migration[7.2]
   def up
     change_column :db_files,:data,:binary,:limit=>nil
   end

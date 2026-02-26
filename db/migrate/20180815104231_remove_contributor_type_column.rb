@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RemoveContributorTypeColumn < ActiveRecord::Migration
+class RemoveContributorTypeColumn < ActiveRecord::Migration[7.2]
   def up
     types.each do |type|
       remove_column type.table_name.to_sym, :contributor_type

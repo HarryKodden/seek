@@ -1,4 +1,4 @@
-class CreateProgrammes < ActiveRecord::Migration
+class CreateProgrammes < ActiveRecord::Migration[7.2]
   def change
     create_table :programmes do |t|
       t.string :title

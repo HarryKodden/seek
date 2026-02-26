@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20140226135723)
-class ChangeTavernaPlayerRunsStatusMessageToUseKeys < ActiveRecord::Migration
+class ChangeTavernaPlayerRunsStatusMessageToUseKeys < ActiveRecord::Migration[7.2]
   def up
     rename_column :taverna_player_runs, :status_message, :status_message_key
 

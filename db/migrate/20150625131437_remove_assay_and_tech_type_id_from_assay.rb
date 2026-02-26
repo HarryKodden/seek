@@ -1,4 +1,4 @@
-class RemoveAssayAndTechTypeIdFromAssay < ActiveRecord::Migration
+class RemoveAssayAndTechTypeIdFromAssay < ActiveRecord::Migration[7.2]
   def up
     if column_exists? :assays, :assay_type_id
       remove_column :assays,:assay_type_id

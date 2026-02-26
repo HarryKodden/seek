@@ -1,4 +1,4 @@
-class CreateWorkflowVersions < ActiveRecord::Migration
+class CreateWorkflowVersions < ActiveRecord::Migration[7.2]
   def change
     create_table :workflow_versions do |t|
       t.string :title

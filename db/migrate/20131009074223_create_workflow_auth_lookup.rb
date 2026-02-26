@@ -1,4 +1,4 @@
-class CreateWorkflowAuthLookup < ActiveRecord::Migration
+class CreateWorkflowAuthLookup < ActiveRecord::Migration[7.2]
   def change
     create_table :workflow_auth_lookup do |t|
       t.references :user

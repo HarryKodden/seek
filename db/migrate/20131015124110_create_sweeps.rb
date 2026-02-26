@@ -1,4 +1,4 @@
-class CreateSweeps < ActiveRecord::Migration
+class CreateSweeps < ActiveRecord::Migration[7.2]
   def change
     create_table :sweeps do |t|
       t.string :name

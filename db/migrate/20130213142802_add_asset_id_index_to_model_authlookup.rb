@@ -1,4 +1,4 @@
-class AddAssetIdIndexToModelAuthlookup < ActiveRecord::Migration
+class AddAssetIdIndexToModelAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :model_auth_lookup, [:user_id,:asset_id, :can_view]
   end

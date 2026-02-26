@@ -1,4 +1,4 @@
-class CreateDocumentVersions < ActiveRecord::Migration
+class CreateDocumentVersions < ActiveRecord::Migration[7.2]
   def change
     create_table :document_versions do |t|
       t.references :document, index: true

@@ -1,4 +1,4 @@
-class DefaultRoleMask < ActiveRecord::Migration
+class DefaultRoleMask < ActiveRecord::Migration[7.2]
   def up
     change_column_default :people, :roles_mask, 0
   end

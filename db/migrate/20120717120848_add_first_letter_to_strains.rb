@@ -1,4 +1,4 @@
-class AddFirstLetterToStrains < ActiveRecord::Migration
+class AddFirstLetterToStrains < ActiveRecord::Migration[7.2]
   def self.up
     add_column :strains, :first_letter, :string
   end

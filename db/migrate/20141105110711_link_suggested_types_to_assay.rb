@@ -1,4 +1,4 @@
-class LinkSuggestedTypesToAssay < ActiveRecord::Migration
+class LinkSuggestedTypesToAssay < ActiveRecord::Migration[7.2]
 
   def up
     update_for "assay_type"

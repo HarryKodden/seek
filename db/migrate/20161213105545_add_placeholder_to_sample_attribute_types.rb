@@ -1,4 +1,4 @@
-class AddPlaceholderToSampleAttributeTypes < ActiveRecord::Migration
+class AddPlaceholderToSampleAttributeTypes < ActiveRecord::Migration[7.2]
 
   def change
     add_column :sample_attribute_types, :placeholder, :string

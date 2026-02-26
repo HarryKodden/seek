@@ -1,4 +1,4 @@
-class CreateSampleResourceLinks < ActiveRecord::Migration
+class CreateSampleResourceLinks < ActiveRecord::Migration[7.2]
   def change
     create_table :sample_resource_links do |t|
       t.references :sample

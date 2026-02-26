@@ -1,4 +1,4 @@
-class CreateMessageLogs < ActiveRecord::Migration
+class CreateMessageLogs < ActiveRecord::Migration[7.2]
   def change
     create_table :message_logs do |t|
       t.timestamps true

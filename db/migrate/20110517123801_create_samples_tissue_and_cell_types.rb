@@ -1,4 +1,4 @@
-class CreateSamplesTissueAndCellTypes < ActiveRecord::Migration
+class CreateSamplesTissueAndCellTypes < ActiveRecord::Migration[7.2]
   def self.up
     create_table :samples_tissue_and_cell_types ,:id=> false do |t|
         t.integer :sample_id

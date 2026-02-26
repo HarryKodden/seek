@@ -1,4 +1,4 @@
-class CreateProjectsSampleTypes < ActiveRecord::Migration
+class CreateProjectsSampleTypes < ActiveRecord::Migration[7.2]
   def up
     create_table :projects_sample_types,:id => false do |t|
       t.integer :project_id

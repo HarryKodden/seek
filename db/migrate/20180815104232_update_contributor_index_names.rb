@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UpdateContributorIndexNames < ActiveRecord::Migration
+class UpdateContributorIndexNames < ActiveRecord::Migration[7.2]
   def change
     %w[data_files model_versions models publications sop_versions sops].each do |t|
       rename_index t, "index_#{t}_on_contributor_id_and_contributor_type", "index_#{t}_on_contributor"

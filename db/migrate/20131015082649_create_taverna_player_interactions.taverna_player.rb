@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20130714140911)
-class CreateTavernaPlayerInteractions < ActiveRecord::Migration
+class CreateTavernaPlayerInteractions < ActiveRecord::Migration[7.2]
   def change
     create_table :taverna_player_interactions do |t|
       t.string :uri

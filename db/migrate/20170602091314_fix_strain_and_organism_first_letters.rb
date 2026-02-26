@@ -1,4 +1,4 @@
-class FixStrainAndOrganismFirstLetters < ActiveRecord::Migration
+class FixStrainAndOrganismFirstLetters < ActiveRecord::Migration[7.2]
   def up
     Organism.find_each do |organism|
       organism.update_first_letter

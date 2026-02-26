@@ -1,4 +1,4 @@
-class DropAssayTechTypeLabel < ActiveRecord::Migration
+class DropAssayTechTypeLabel < ActiveRecord::Migration[7.2]
   def up
     remove_column :assays,:technology_type_label
   end

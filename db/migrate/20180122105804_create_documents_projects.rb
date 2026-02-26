@@ -1,4 +1,4 @@
-class CreateDocumentsProjects < ActiveRecord::Migration
+class CreateDocumentsProjects < ActiveRecord::Migration[7.2]
   def change
     create_table :documents_projects do |t|
       t.references :document

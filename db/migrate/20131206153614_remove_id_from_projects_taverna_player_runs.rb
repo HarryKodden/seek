@@ -1,4 +1,4 @@
-class RemoveIdFromProjectsTavernaPlayerRuns < ActiveRecord::Migration
+class RemoveIdFromProjectsTavernaPlayerRuns < ActiveRecord::Migration[7.2]
   def up
     remove_column :projects_taverna_player_runs, :id
   end

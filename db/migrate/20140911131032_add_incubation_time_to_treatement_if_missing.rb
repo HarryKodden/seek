@@ -1,4 +1,4 @@
-class AddIncubationTimeToTreatementIfMissing < ActiveRecord::Migration
+class AddIncubationTimeToTreatementIfMissing < ActiveRecord::Migration[7.2]
   def change
     add_column :treatments, :incubation_time, :float if !column_exists?(:treatments,:incubation_time, :float)
     add_column :treatments, :incubation_time_unit_id, :integer if !column_exists?(:treatments,:incubation_time_unit_id, :integer)

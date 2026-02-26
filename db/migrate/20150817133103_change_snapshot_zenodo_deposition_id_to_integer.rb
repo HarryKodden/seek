@@ -1,4 +1,4 @@
-class ChangeSnapshotZenodoDepositionIdToInteger < ActiveRecord::Migration
+class ChangeSnapshotZenodoDepositionIdToInteger < ActiveRecord::Migration[7.2]
   def up
     change_column :snapshots, :zenodo_deposition_id, :integer
   end

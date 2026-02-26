@@ -1,4 +1,4 @@
-class RemoveForumAttachmentTable < ActiveRecord::Migration
+class RemoveForumAttachmentTable < ActiveRecord::Migration[7.2]
   def up
     drop_table :forum_attachments
   end

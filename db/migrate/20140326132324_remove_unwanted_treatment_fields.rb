@@ -1,4 +1,4 @@
-class RemoveUnwantedTreatmentFields < ActiveRecord::Migration
+class RemoveUnwantedTreatmentFields < ActiveRecord::Migration[7.2]
   def change
     #this is to get around an inconsistency between VLN and SEEK schema. the next migration that creates measured_item_id will skip it if it exists.
     if column_exists?(:treatments, :treatment_type_id, :integer)

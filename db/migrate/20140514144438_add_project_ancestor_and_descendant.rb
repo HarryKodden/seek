@@ -1,4 +1,4 @@
-class AddProjectAncestorAndDescendant < ActiveRecord::Migration
+class AddProjectAncestorAndDescendant < ActiveRecord::Migration[7.2]
   def change
     add_column :projects,:ancestor_id,:integer
   end

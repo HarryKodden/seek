@@ -1,4 +1,4 @@
-class RemoveIsWithSampleFromDataFiles < ActiveRecord::Migration
+class RemoveIsWithSampleFromDataFiles < ActiveRecord::Migration[7.2]
   def self.up
     remove_column :data_files, :is_with_sample
     remove_column :data_file_versions, :is_with_sample

@@ -1,4 +1,4 @@
-class DropDataOldAttribute < ActiveRecord::Migration
+class DropDataOldAttribute < ActiveRecord::Migration[7.2]
   def up
     remove_column :content_blobs, :data_old
   end

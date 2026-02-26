@@ -1,4 +1,4 @@
-class AddMimeTypeToWorkflowOutputPorts < ActiveRecord::Migration
+class AddMimeTypeToWorkflowOutputPorts < ActiveRecord::Migration[7.2]
   def change
     change_table :workflow_output_ports do |t|
       t.string :mime_type

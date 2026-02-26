@@ -1,4 +1,4 @@
-class CreateSuggestedTechnologyTypes < ActiveRecord::Migration
+class CreateSuggestedTechnologyTypes < ActiveRecord::Migration[7.2]
   def change
     create_table :suggested_technology_types do |t|
       t.string :label

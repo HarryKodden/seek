@@ -1,4 +1,4 @@
-class ChangeSampleAttributeTypeRegExpToText < ActiveRecord::Migration
+class ChangeSampleAttributeTypeRegExpToText < ActiveRecord::Migration[7.2]
 
   def up
     change_column_default :sample_attribute_types,:regexp, nil

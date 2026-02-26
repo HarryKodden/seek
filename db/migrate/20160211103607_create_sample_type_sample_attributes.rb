@@ -1,4 +1,4 @@
-class CreateSampleTypeSampleAttributes < ActiveRecord::Migration
+class CreateSampleTypeSampleAttributes < ActiveRecord::Migration[7.2]
   def change
     create_table :sample_type_sample_attributes, :id=>false do |t|
       t.integer :sample_type_id

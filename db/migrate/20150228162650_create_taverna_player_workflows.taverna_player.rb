@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20140917165505)
-class CreateTavernaPlayerWorkflows < ActiveRecord::Migration
+class CreateTavernaPlayerWorkflows < ActiveRecord::Migration[7.2]
   def change
     create_table :taverna_player_workflows do |t|
       t.string :title

@@ -1,4 +1,4 @@
-class AssigningHourUnitToExistingSamples < ActiveRecord::Migration
+class AssigningHourUnitToExistingSamples < ActiveRecord::Migration[7.2]
   class Unit < ActiveRecord::Base
   end
   class Sample < ActiveRecord::Base

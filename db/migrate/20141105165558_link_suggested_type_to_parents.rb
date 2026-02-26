@@ -1,4 +1,4 @@
-class LinkSuggestedTypeToParents < ActiveRecord::Migration
+class LinkSuggestedTypeToParents < ActiveRecord::Migration[7.2]
   def up
     update_for "assay_types"
     update_for "technology_types"

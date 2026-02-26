@@ -1,4 +1,4 @@
-class RemovePolimorphicCulpritOnResourcePublishLog < ActiveRecord::Migration
+class RemovePolimorphicCulpritOnResourcePublishLog < ActiveRecord::Migration[7.2]
   def up
     rename_column :resource_publish_logs, :culprit_id, :user_id
     remove_column :resource_publish_logs, :culprit_type

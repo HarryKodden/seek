@@ -1,4 +1,4 @@
-class AddAssetIdIndexToPresentationAuthlookup < ActiveRecord::Migration
+class AddAssetIdIndexToPresentationAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :presentation_auth_lookup, [:user_id,:asset_id, :can_view]
   end

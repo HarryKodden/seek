@@ -1,4 +1,4 @@
-class DropSampleSopsTable < ActiveRecord::Migration
+class DropSampleSopsTable < ActiveRecord::Migration[7.2]
   def self.up
     drop_table :sample_sops
   end

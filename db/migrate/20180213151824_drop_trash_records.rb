@@ -1,4 +1,4 @@
-class DropTrashRecords < ActiveRecord::Migration
+class DropTrashRecords < ActiveRecord::Migration[7.2]
   def up
     drop_table :trash_records
   end

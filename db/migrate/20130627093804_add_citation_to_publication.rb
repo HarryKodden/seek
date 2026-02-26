@@ -1,4 +1,4 @@
-class AddCitationToPublication < ActiveRecord::Migration
+class AddCitationToPublication < ActiveRecord::Migration[7.2]
   def self.up
     add_column :publications, :citation, :string
   end

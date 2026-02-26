@@ -1,4 +1,4 @@
-class CreateSampleAssets < ActiveRecord::Migration
+class CreateSampleAssets < ActiveRecord::Migration[7.2]
   def self.up
     create_table :sample_assets do |t|
       t.integer :sample_id

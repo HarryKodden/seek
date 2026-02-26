@@ -1,4 +1,4 @@
-class AddIndexesOnTheAssetProjectJoinTables < ActiveRecord::Migration
+class AddIndexesOnTheAssetProjectJoinTables < ActiveRecord::Migration[7.2]
   def self.up
     add_index :organisms_projects,[:organism_id,:project_id]
     add_index :data_files_projects,[:data_file_id,:project_id]

@@ -1,4 +1,4 @@
-class CreateProjectFolderAssets < ActiveRecord::Migration
+class CreateProjectFolderAssets < ActiveRecord::Migration[7.2]
   def self.up
     create_table :project_folder_assets do |t|
       t.integer :asset_id

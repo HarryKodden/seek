@@ -1,4 +1,4 @@
-class DropSampleTypeSampleAttributes < ActiveRecord::Migration
+class DropSampleTypeSampleAttributes < ActiveRecord::Migration[7.2]
   def up
     drop_table :sample_type_sample_attributes
   end

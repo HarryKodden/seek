@@ -1,4 +1,4 @@
-class SmallerIndexNames < ActiveRecord::Migration
+class SmallerIndexNames < ActiveRecord::Migration[7.2]
   def change
     rename_index :data_file_versions,"index_data_file_versions_on_contributor_id_and_contributor_type","index_data_file_versions_contributor"
     rename_index :investigations_projects,"index_investigations_projects_on_investigation_id_and_project_id","index_investigations_projects_inv_proj_id"

@@ -1,4 +1,4 @@
-class AddWebPageFlagToContentBlob < ActiveRecord::Migration
+class AddWebPageFlagToContentBlob < ActiveRecord::Migration[7.2]
   def self.up
     add_column :content_blobs,:is_webpage,:boolean,:default=>false
   end

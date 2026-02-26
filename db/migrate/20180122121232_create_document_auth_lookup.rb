@@ -1,4 +1,4 @@
-class CreateDocumentAuthLookup < ActiveRecord::Migration
+class CreateDocumentAuthLookup < ActiveRecord::Migration[7.2]
   def change
     create_table :document_auth_lookup do |t|
       t.integer :user_id

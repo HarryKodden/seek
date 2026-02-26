@@ -1,4 +1,4 @@
-class CreateAttachments < ActiveRecord::Migration
+class CreateAttachments < ActiveRecord::Migration[7.2]
   def self.up
     create_table :attachments do |t|
       t.integer     :size, :height, :width, :parent_id, :attachable_id, :position

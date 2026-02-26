@@ -1,4 +1,4 @@
-class RestructureSeekResourceSampleJson < ActiveRecord::Migration
+class RestructureSeekResourceSampleJson < ActiveRecord::Migration[7.2]
   def up
     resource_attribute_types = SampleAttributeType.all.select(&:seek_resource?)
 

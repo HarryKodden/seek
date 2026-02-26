@@ -1,4 +1,4 @@
-class AddAssetIdIndexToDfAuthlookup < ActiveRecord::Migration
+class AddAssetIdIndexToDfAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :data_file_auth_lookup, [:user_id,:asset_id, :can_view]
   end

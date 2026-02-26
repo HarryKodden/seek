@@ -1,4 +1,4 @@
-class AddNewTreatmentFields < ActiveRecord::Migration
+class AddNewTreatmentFields < ActiveRecord::Migration[7.2]
 
   def change
     add_column :treatments, :measured_item_id, :integer if !column_exists?(:treatments,:measured_item_id,:integer)

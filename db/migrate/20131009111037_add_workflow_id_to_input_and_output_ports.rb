@@ -1,4 +1,4 @@
-class AddWorkflowIdToInputAndOutputPorts < ActiveRecord::Migration
+class AddWorkflowIdToInputAndOutputPorts < ActiveRecord::Migration[7.2]
   def change
     change_table :workflow_input_ports do |t|
       t.belongs_to :workflow

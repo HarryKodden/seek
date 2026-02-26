@@ -1,4 +1,4 @@
-class DefaultRegExpForSampleAttributeType < ActiveRecord::Migration
+class DefaultRegExpForSampleAttributeType < ActiveRecord::Migration[7.2]
   def up
     change_column_default :sample_attribute_types,:regexp,'.*'
   end

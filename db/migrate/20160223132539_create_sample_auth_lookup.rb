@@ -1,4 +1,4 @@
-class CreateSampleAuthLookup < ActiveRecord::Migration
+class CreateSampleAuthLookup < ActiveRecord::Migration[7.2]
   def change
     remove_index :deprecated_sample_auth_lookup, name: "index_sample_user_id_asset_id_can_view"
     remove_index :deprecated_sample_auth_lookup, name: "index_sample_auth_lookup_on_user_id_and_can_view"

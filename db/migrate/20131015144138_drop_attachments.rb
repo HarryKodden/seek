@@ -1,4 +1,4 @@
-class DropAttachments < ActiveRecord::Migration
+class DropAttachments < ActiveRecord::Migration[7.2]
   def self.up
     remove_index :attachments, :parent_id
     remove_index :attachments, [:attachable_id, :attachable_type]

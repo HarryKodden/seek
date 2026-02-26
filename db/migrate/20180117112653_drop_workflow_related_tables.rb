@@ -1,4 +1,4 @@
-class DropWorkflowRelatedTables < ActiveRecord::Migration
+class DropWorkflowRelatedTables < ActiveRecord::Migration[7.2]
   def change
     # Workflows
     drop_table "workflows" do |t|

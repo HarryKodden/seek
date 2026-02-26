@@ -1,4 +1,4 @@
-class RemoveMemberProjectPosition < ActiveRecord::Migration
+class RemoveMemberProjectPosition < ActiveRecord::Migration[7.2]
   def up
     id=select_value("SELECT id FROM project_positions WHERE name = 'Member';")
     if id

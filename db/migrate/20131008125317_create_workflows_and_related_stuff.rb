@@ -1,4 +1,4 @@
-class CreateWorkflowsAndRelatedStuff < ActiveRecord::Migration
+class CreateWorkflowsAndRelatedStuff < ActiveRecord::Migration[7.2]
   def change
     create_table :workflows do |t|
       t.string :title

@@ -1,4 +1,4 @@
-class AddDeletetedContributorField < ActiveRecord::Migration
+class AddDeletetedContributorField < ActiveRecord::Migration[7.2]
   def up
     table_names.each do |table_name|
       add_column table_name, :deleted_contributor, :string, default: nil

@@ -1,4 +1,4 @@
-class AddTavernaAuthLookupIndexes < ActiveRecord::Migration
+class AddTavernaAuthLookupIndexes < ActiveRecord::Migration[7.2]
   def change
     add_index :workflow_auth_lookup,[:user_id,:can_view]
     add_index :workflow_auth_lookup,[:user_id,:asset_id,:can_view]

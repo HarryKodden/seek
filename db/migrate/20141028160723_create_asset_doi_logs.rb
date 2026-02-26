@@ -1,4 +1,4 @@
-class CreateAssetDoiLogs < ActiveRecord::Migration
+class CreateAssetDoiLogs < ActiveRecord::Migration[7.2]
   def change
     create_table :asset_doi_logs do |t|
       t.string :asset_type

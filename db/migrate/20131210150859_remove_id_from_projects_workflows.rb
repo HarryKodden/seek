@@ -1,4 +1,4 @@
-class RemoveIdFromProjectsWorkflows < ActiveRecord::Migration
+class RemoveIdFromProjectsWorkflows < ActiveRecord::Migration[7.2]
   def up
     remove_column :projects_workflows, :id
   end

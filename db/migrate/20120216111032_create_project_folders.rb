@@ -1,4 +1,4 @@
-class CreateProjectFolders < ActiveRecord::Migration
+class CreateProjectFolders < ActiveRecord::Migration[7.2]
   def self.up
     create_table :project_folders do |t|
       t.integer :project_id

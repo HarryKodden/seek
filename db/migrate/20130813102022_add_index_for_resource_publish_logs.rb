@@ -1,4 +1,4 @@
-class AddIndexForResourcePublishLogs < ActiveRecord::Migration
+class AddIndexForResourcePublishLogs < ActiveRecord::Migration[7.2]
   def self.up
     add_index :resource_publish_logs, [:resource_type,:resource_id]
     add_index :resource_publish_logs, :user_id

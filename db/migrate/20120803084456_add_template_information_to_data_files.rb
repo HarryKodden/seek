@@ -1,4 +1,4 @@
-class AddTemplateInformationToDataFiles < ActiveRecord::Migration
+class AddTemplateInformationToDataFiles < ActiveRecord::Migration[7.2]
   def self.up
     add_column :data_files, :template_name, :string, :default=> 'none'
     add_column :data_file_versions, :template_name, :string, :default=> 'none'

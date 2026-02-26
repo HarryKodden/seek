@@ -1,4 +1,4 @@
-class AddTermUriToAssayType < ActiveRecord::Migration
+class AddTermUriToAssayType < ActiveRecord::Migration[7.2]
 
   def self.up
     add_column :assay_types, :term_uri,:string

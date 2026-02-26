@@ -1,4 +1,4 @@
-class RenameModelImageContentType < ActiveRecord::Migration
+class RenameModelImageContentType < ActiveRecord::Migration[7.2]
   def self.up
     rename_column :model_images, :original_content_type, :content_type
   end

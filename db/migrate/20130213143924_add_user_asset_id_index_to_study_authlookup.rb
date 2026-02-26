@@ -1,4 +1,4 @@
-class AddUserAssetIdIndexToStudyAuthlookup < ActiveRecord::Migration
+class AddUserAssetIdIndexToStudyAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :study_auth_lookup, [:user_id,:asset_id, :can_view]
   end

@@ -1,4 +1,4 @@
-class CreateOpenbisSpace < ActiveRecord::Migration
+class CreateOpenbisSpace < ActiveRecord::Migration[7.2]
   def change
     create_table :openbis_spaces do |t|
       t.string :url

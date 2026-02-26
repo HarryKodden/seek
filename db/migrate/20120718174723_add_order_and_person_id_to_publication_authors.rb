@@ -1,4 +1,4 @@
-class AddOrderAndPersonIdToPublicationAuthors < ActiveRecord::Migration
+class AddOrderAndPersonIdToPublicationAuthors < ActiveRecord::Migration[7.2]
   def self.up
     add_column :publication_authors, :author_index, :integer
     add_column :publication_authors, :person_id, :integer

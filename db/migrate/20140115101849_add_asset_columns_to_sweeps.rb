@@ -1,4 +1,4 @@
-class AddAssetColumnsToSweeps < ActiveRecord::Migration
+class AddAssetColumnsToSweeps < ActiveRecord::Migration[7.2]
   def change
     rename_column :sweeps, :user_id, :contributor_id
     add_column :sweeps, :contributor_type, :string

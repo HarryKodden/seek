@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeUserContributorsToPerson < ActiveRecord::Migration
+class ChangeUserContributorsToPerson < ActiveRecord::Migration[7.2]
   def up
     types.each do |type|
       sql = "SELECT #{type.table_name}.id, users.person_id FROM #{type.table_name} LEFT JOIN users ON users.id = contributor_id WHERE #{type.table_name}.contributor_type = 'User';"

@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20130313105546)
-class CreateTavernaPlayerRuns < ActiveRecord::Migration
+class CreateTavernaPlayerRuns < ActiveRecord::Migration[7.2]
   def change
     create_table :taverna_player_runs do |t|
       t.string :run_id

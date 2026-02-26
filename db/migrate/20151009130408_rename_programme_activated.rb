@@ -1,4 +1,4 @@
-class RenameProgrammeActivated < ActiveRecord::Migration
+class RenameProgrammeActivated < ActiveRecord::Migration[7.2]
 
   def up
     rename_column :programmes, :activated, :is_activated

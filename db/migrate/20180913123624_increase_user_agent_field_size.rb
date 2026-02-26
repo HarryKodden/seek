@@ -1,4 +1,4 @@
-class IncreaseUserAgentFieldSize < ActiveRecord::Migration
+class IncreaseUserAgentFieldSize < ActiveRecord::Migration[7.2]
 
   def up
     change_column :activity_logs, :user_agent, :text

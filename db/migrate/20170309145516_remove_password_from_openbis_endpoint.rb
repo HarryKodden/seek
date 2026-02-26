@@ -1,4 +1,4 @@
-class RemovePasswordFromOpenbisEndpoint < ActiveRecord::Migration
+class RemovePasswordFromOpenbisEndpoint < ActiveRecord::Migration[7.2]
   def up
     remove_column :openbis_endpoints, :password
   end

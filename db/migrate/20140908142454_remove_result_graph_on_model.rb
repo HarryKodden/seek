@@ -1,4 +1,4 @@
-class RemoveResultGraphOnModel < ActiveRecord::Migration
+class RemoveResultGraphOnModel < ActiveRecord::Migration[7.2]
   def up
     remove_column :models, :result_graph
     remove_column :model_versions, :result_graph

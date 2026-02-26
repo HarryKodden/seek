@@ -1,4 +1,4 @@
-class FixTechTypeUris < ActiveRecord::Migration
+class FixTechTypeUris < ActiveRecord::Migration[7.2]
   def up
     sql = "SELECT id,term_uri FROM technology_types WHERE term_uri IS NOT NULL;"
     records = ActiveRecord::Base.connection.execute(sql)

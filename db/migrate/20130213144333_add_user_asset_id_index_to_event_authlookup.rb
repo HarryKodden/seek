@@ -1,4 +1,4 @@
-class AddUserAssetIdIndexToEventAuthlookup < ActiveRecord::Migration
+class AddUserAssetIdIndexToEventAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :event_auth_lookup, [:user_id,:asset_id, :can_view]
   end

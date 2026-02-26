@@ -1,4 +1,4 @@
-class AddImportedFromFieldsToModelVersion < ActiveRecord::Migration
+class AddImportedFromFieldsToModelVersion < ActiveRecord::Migration[7.2]
   def self.up
     add_column :model_versions, :imported_source, :string, :default=>nil
     add_column :model_versions, :imported_url, :string, :default=>nil

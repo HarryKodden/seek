@@ -1,4 +1,4 @@
-class FixBooleanTypesForTavernaRelatedAuthLookUps < ActiveRecord::Migration
+class FixBooleanTypesForTavernaRelatedAuthLookUps < ActiveRecord::Migration[7.2]
   def up
     change_column :workflow_auth_lookup,:can_view,:boolean
     change_column :workflow_auth_lookup,:can_manage,:boolean

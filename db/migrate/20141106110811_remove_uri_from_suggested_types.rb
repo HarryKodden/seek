@@ -1,4 +1,4 @@
-class RemoveUriFromSuggestedTypes < ActiveRecord::Migration
+class RemoveUriFromSuggestedTypes < ActiveRecord::Migration[7.2]
   def up
     remove_column :suggested_assay_types,:uri
     remove_column :suggested_technology_types,:uri

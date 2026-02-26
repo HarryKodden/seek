@@ -1,4 +1,4 @@
-class AddTermUriToTechnologyType < ActiveRecord::Migration
+class AddTermUriToTechnologyType < ActiveRecord::Migration[7.2]
 
   def self.up
     add_column :technology_types, :term_uri,:string

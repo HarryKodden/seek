@@ -1,6 +1,6 @@
 ASSET_ARRAY=[['model_id', 'Model', 'models', 'model_versions'], ['sop_id', 'Sop', 'sops', 'sop_versions'], ['data_file_id', 'DataFile', 'data_files', 'data_file_versions'], ['presentation_id', 'Presentation', 'presentations', 'presentation_versions']]
 
-class CopyOriginalFilenameContentTypeFromAssetToContentBlobs < ActiveRecord::Migration
+class CopyOriginalFilenameContentTypeFromAssetToContentBlobs < ActiveRecord::Migration[7.2]
   def self.up
     #copy original_filename,content_type,version from asset_versions to content_blobs
     ASSET_ARRAY.each do |asset|

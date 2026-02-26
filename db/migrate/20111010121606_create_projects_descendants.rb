@@ -1,4 +1,4 @@
-class CreateProjectsDescendants < ActiveRecord::Migration
+class CreateProjectsDescendants < ActiveRecord::Migration[7.2]
   def self.up
     create_table :project_descendants ,:id=> false do |t|
       t.integer :ancestor_id

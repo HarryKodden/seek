@@ -1,4 +1,4 @@
-class RenameSampleToDeprecatedSample < ActiveRecord::Migration
+class RenameSampleToDeprecatedSample < ActiveRecord::Migration[7.2]
   def change
     rename_table :samples, :deprecated_samples
 

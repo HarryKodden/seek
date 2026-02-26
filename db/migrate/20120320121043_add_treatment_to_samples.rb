@@ -1,4 +1,4 @@
-class AddTreatmentToSamples < ActiveRecord::Migration
+class AddTreatmentToSamples < ActiveRecord::Migration[7.2]
   def self.up
     add_column :samples,:treatment,:string
   end

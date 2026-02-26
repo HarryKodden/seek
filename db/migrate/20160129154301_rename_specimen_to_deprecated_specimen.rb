@@ -1,4 +1,4 @@
-class RenameSpecimenToDeprecatedSpecimen < ActiveRecord::Migration
+class RenameSpecimenToDeprecatedSpecimen < ActiveRecord::Migration[7.2]
   def change
     rename_table :specimens, :deprecated_specimens
 

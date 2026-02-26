@@ -1,4 +1,4 @@
-class RemoveTopicTable < ActiveRecord::Migration
+class RemoveTopicTable < ActiveRecord::Migration[7.2]
   def up
     drop_table :topics
   end

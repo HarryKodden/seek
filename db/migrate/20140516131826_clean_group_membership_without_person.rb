@@ -1,4 +1,4 @@
-class CleanGroupMembershipWithoutPerson < ActiveRecord::Migration
+class CleanGroupMembershipWithoutPerson < ActiveRecord::Migration[7.2]
   def up
     sql = "DELETE FROM group_memberships WHERE person_id IS NULL;"
     ActiveRecord::Base.connection.execute(sql)

@@ -1,4 +1,4 @@
-class DropAssayTypeEdges < ActiveRecord::Migration
+class DropAssayTypeEdges < ActiveRecord::Migration[7.2]
 
   def up
     drop_table :assay_types_edges

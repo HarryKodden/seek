@@ -1,4 +1,4 @@
-class RenameOpenbisSpaceToOpenbisEndpoint < ActiveRecord::Migration
+class RenameOpenbisSpaceToOpenbisEndpoint < ActiveRecord::Migration[7.2]
   def up
     rename_table :openbis_spaces, :openbis_endpoints
   end

@@ -1,4 +1,4 @@
-class AddMissingAuthTableIndexes < ActiveRecord::Migration
+class AddMissingAuthTableIndexes < ActiveRecord::Migration[7.2]
   def up
     add_index "investigation_auth_lookup", ["user_id", "asset_id", "can_view"],:name=>"index_inv_user_id_asset_id_can_view"
     add_index "presentation_auth_lookup", ["user_id", "asset_id", "can_view"],:name=>"index_presentation_user_id_asset_id_can_view"

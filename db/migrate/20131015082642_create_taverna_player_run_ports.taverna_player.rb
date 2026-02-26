@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20130315163019)
-class CreateTavernaPlayerRunPorts < ActiveRecord::Migration
+class CreateTavernaPlayerRunPorts < ActiveRecord::Migration[7.2]
   def change
     create_table :taverna_player_run_ports do |t|
       t.string :name

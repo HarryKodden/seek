@@ -1,4 +1,4 @@
-class DropEditProjectAndInstitutionFlags < ActiveRecord::Migration
+class DropEditProjectAndInstitutionFlags < ActiveRecord::Migration[7.2]
 
   def up
     remove_column :people,:can_edit_projects

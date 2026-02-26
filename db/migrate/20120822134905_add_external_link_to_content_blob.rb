@@ -1,4 +1,4 @@
-class AddExternalLinkToContentBlob < ActiveRecord::Migration
+class AddExternalLinkToContentBlob < ActiveRecord::Migration[7.2]
   def self.up
     add_column :content_blobs, :external_link, :boolean
   end

@@ -1,4 +1,4 @@
-class AddDoiAttributesToModelSopWorkflow < ActiveRecord::Migration
+class AddDoiAttributesToModelSopWorkflow < ActiveRecord::Migration[7.2]
   def change
     add_column :models,:doi,:string
     add_column :model_versions,:doi,:string

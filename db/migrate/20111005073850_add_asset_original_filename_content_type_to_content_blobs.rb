@@ -1,4 +1,4 @@
-class AddAssetOriginalFilenameContentTypeToContentBlobs < ActiveRecord::Migration
+class AddAssetOriginalFilenameContentTypeToContentBlobs < ActiveRecord::Migration[7.2]
   def self.up
     add_column :content_blobs, :original_filename, :string
     add_column :content_blobs, :content_type, :string

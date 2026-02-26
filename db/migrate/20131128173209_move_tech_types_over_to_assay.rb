@@ -1,4 +1,4 @@
-class MoveTechTypesOverToAssay < ActiveRecord::Migration
+class MoveTechTypesOverToAssay < ActiveRecord::Migration[7.2]
   def up
     sql = "SELECT id, technology_type_id FROM assays;"
 

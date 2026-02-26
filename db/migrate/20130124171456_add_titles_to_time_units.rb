@@ -1,4 +1,4 @@
-class AddTitlesToTimeUnits < ActiveRecord::Migration
+class AddTitlesToTimeUnits < ActiveRecord::Migration[7.2]
   class Unit < ActiveRecord::Base
   end
 

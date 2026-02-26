@@ -1,4 +1,4 @@
-class RemoveIdImageFromModels < ActiveRecord::Migration
+class RemoveIdImageFromModels < ActiveRecord::Migration[7.2]
   def self.up
     execute("SELECT id_image, model_image_id FROM models").each do |id|
       id_image = id[0]

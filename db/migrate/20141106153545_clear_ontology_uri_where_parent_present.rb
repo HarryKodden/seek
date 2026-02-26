@@ -1,4 +1,4 @@
-class ClearOntologyUriWhereParentPresent < ActiveRecord::Migration
+class ClearOntologyUriWhereParentPresent < ActiveRecord::Migration[7.2]
   def up
     sql = "UPDATE suggested_assay_types SET ontology_uri = NULL where parent_id IS NOT NULL"
     ActiveRecord::Base.connection.execute(sql)

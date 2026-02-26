@@ -1,4 +1,4 @@
-class CreateSweepAuthLookup < ActiveRecord::Migration
+class CreateSweepAuthLookup < ActiveRecord::Migration[7.2]
   def change
     create_table :sweep_auth_lookup do |t|
       t.references :user

@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20131010094537)
-class AddReplyCachingToTavernaPlayerInteractions < ActiveRecord::Migration
+class AddReplyCachingToTavernaPlayerInteractions < ActiveRecord::Migration[7.2]
   def up
     remove_column :taverna_player_interactions, :uri
     add_column :taverna_player_interactions, :unique_id, :string

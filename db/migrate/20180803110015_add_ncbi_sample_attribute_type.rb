@@ -1,4 +1,4 @@
-class AddNcbiSampleAttributeType < ActiveRecord::Migration
+class AddNcbiSampleAttributeType < ActiveRecord::Migration[7.2]
   def up
     ncbi_type = SampleAttributeType.find_or_initialize_by(title:'NCBI ID')
     ncbi_type.update(base_type: Seek::Samples::BaseType::STRING, regexp: '[0-9]+', placeholder: '23234', resolution:'https://identifiers.org/taxonomy/\\0')

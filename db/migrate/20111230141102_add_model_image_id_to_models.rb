@@ -1,4 +1,4 @@
-class AddModelImageIdToModels < ActiveRecord::Migration
+class AddModelImageIdToModels < ActiveRecord::Migration[7.2]
   def self.up
     add_column :models,:model_image_id,:integer
     add_column :model_versions,:model_image_id,:integer

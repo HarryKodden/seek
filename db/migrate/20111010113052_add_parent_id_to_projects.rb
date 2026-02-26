@@ -1,4 +1,4 @@
-class AddParentIdToProjects < ActiveRecord::Migration
+class AddParentIdToProjects < ActiveRecord::Migration[7.2]
   def self.up
     add_column :projects,:parent_id,:integer
   end

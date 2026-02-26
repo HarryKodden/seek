@@ -1,4 +1,4 @@
-class CreateSnapshots < ActiveRecord::Migration
+class CreateSnapshots < ActiveRecord::Migration[7.2]
   def change
     create_table :snapshots do |t|
       t.string :resource_type

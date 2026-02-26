@@ -1,4 +1,4 @@
-class DropTechnologyTypes < ActiveRecord::Migration
+class DropTechnologyTypes < ActiveRecord::Migration[7.2]
   def up
     drop_table :technology_types
   end

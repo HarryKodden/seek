@@ -1,4 +1,4 @@
-class CleanAssetCreatorsForDeprecated < ActiveRecord::Migration
+class CleanAssetCreatorsForDeprecated < ActiveRecord::Migration[7.2]
   def up
     execute "DELETE FROM assets_creators WHERE asset_type='DeprecatedSpecimen';"
     execute "DELETE FROM assets_creators WHERE asset_type='DeprecatedSample';"

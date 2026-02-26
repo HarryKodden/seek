@@ -1,4 +1,4 @@
-class AddIndexForAssetCreatorJoinTable < ActiveRecord::Migration
+class AddIndexForAssetCreatorJoinTable < ActiveRecord::Migration[7.2]
   def self.up
     add_index :assets_creators,[:asset_id, :asset_type]
   end

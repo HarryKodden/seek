@@ -1,4 +1,4 @@
-class RemoveForumTable < ActiveRecord::Migration
+class RemoveForumTable < ActiveRecord::Migration[7.2]
   def up
     drop_table :forums
   end

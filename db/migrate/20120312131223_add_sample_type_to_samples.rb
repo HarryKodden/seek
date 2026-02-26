@@ -1,4 +1,4 @@
-class AddSampleTypeToSamples < ActiveRecord::Migration
+class AddSampleTypeToSamples < ActiveRecord::Migration[7.2]
   def self.up
     add_column :samples, :sample_type, :string
   end

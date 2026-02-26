@@ -1,5 +1,5 @@
 # This migration comes from taverna_player (originally 20131127162157)
-class AddIndexesWhereMissing < ActiveRecord::Migration
+class AddIndexesWhereMissing < ActiveRecord::Migration[7.2]
   def change
     add_index :taverna_player_interactions, [:run_id, :serial]
     add_index :taverna_player_interactions, [:run_id, :replied]

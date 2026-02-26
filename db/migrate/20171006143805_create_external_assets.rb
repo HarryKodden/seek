@@ -1,4 +1,4 @@
-class CreateExternalAssets < ActiveRecord::Migration
+class CreateExternalAssets < ActiveRecord::Migration[7.2]
   def change
     create_table :external_assets do |t|
       t.string :external_service, null: false

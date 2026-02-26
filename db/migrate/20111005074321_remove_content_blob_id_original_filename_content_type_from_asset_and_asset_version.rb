@@ -1,6 +1,6 @@
 ASSET_ARRAY=[['model_id', 'Model', 'models', 'model_versions'], ['sop_id', 'Sop', 'sops', 'sop_versions'], ['data_file_id', 'DataFile', 'data_files', 'data_file_versions'], ['presentation_id', 'Presentation', 'presentations', 'presentation_versions']]
 
-class RemoveContentBlobIdOriginalFilenameContentTypeFromAssetAndAssetVersion < ActiveRecord::Migration
+class RemoveContentBlobIdOriginalFilenameContentTypeFromAssetAndAssetVersion < ActiveRecord::Migration[7.2]
   def self.up
     #remove original_filename,content_types in assets table and asset_versions table
     ASSET_ARRAY.each do |asset|

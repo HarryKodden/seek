@@ -1,4 +1,4 @@
-class RemoveTemplateNameFromDataFiles < ActiveRecord::Migration
+class RemoveTemplateNameFromDataFiles < ActiveRecord::Migration[7.2]
   def self.up
     remove_column :data_files, :template_name
     remove_column :data_file_versions, :template_name

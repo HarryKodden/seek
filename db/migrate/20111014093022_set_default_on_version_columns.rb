@@ -1,4 +1,4 @@
-class SetDefaultOnVersionColumns < ActiveRecord::Migration
+class SetDefaultOnVersionColumns < ActiveRecord::Migration[7.2]
   def self.up
     change_column_default :data_files, :version, 1
     change_column_default :models, :version, 1

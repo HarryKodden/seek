@@ -1,4 +1,4 @@
-class RemovePostTable < ActiveRecord::Migration
+class RemovePostTable < ActiveRecord::Migration[7.2]
   def up
     drop_table :posts
   end

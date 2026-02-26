@@ -1,4 +1,4 @@
-class AddAgeAtSamplingUnitIdToSamples < ActiveRecord::Migration
+class AddAgeAtSamplingUnitIdToSamples < ActiveRecord::Migration[7.2]
   def self.up
     add_column :samples, :age_at_sampling_unit_id, :integer
   end

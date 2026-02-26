@@ -1,4 +1,4 @@
-class TransferSampleSopsToSampleAssets < ActiveRecord::Migration
+class TransferSampleSopsToSampleAssets < ActiveRecord::Migration[7.2]
   def self.up
     puts "ddddd"
     select_all("select * from sample_sops").each do |item|

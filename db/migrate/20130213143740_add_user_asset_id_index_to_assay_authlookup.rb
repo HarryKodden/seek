@@ -1,4 +1,4 @@
-class AddUserAssetIdIndexToAssayAuthlookup < ActiveRecord::Migration
+class AddUserAssetIdIndexToAssayAuthlookup < ActiveRecord::Migration[7.2]
   def self.up
     add_index :assay_auth_lookup, [:user_id,:asset_id, :can_view]
   end

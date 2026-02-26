@@ -1,4 +1,4 @@
-class CreateJoinTableDocumentsEvents < ActiveRecord::Migration
+class CreateJoinTableDocumentsEvents < ActiveRecord::Migration[7.2]
   def change
     create_join_table :documents, :events do |t|
       t.index [:document_id, :event_id]

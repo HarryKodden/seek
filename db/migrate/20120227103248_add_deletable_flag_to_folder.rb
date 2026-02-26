@@ -1,4 +1,4 @@
-class AddDeletableFlagToFolder < ActiveRecord::Migration
+class AddDeletableFlagToFolder < ActiveRecord::Migration[7.2]
   def self.up
     add_column :project_folders, :deletable, :boolean, :default=>true
   end

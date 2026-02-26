@@ -1,4 +1,4 @@
-class DeleteWorkflowAssociated < ActiveRecord::Migration
+class DeleteWorkflowAssociated < ActiveRecord::Migration[7.2]
   def up
     associations = {
         annotations: [:annotatable_type],

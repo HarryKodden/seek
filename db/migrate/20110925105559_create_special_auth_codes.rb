@@ -1,4 +1,4 @@
-class CreateSpecialAuthCodes < ActiveRecord::Migration
+class CreateSpecialAuthCodes < ActiveRecord::Migration[7.2]
   def self.up
     create_table :special_auth_codes do |t|
       t.string :code

@@ -1,4 +1,4 @@
-class DropTablePublicationAuthorOrders < ActiveRecord::Migration
+class DropTablePublicationAuthorOrders < ActiveRecord::Migration[7.2]
   def change
     drop_table :publication_author_orders do |t|
       t.integer :order

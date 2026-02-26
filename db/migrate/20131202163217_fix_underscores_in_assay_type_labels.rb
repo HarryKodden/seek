@@ -1,4 +1,4 @@
-class FixUnderscoresInAssayTypeLabels < ActiveRecord::Migration
+class FixUnderscoresInAssayTypeLabels < ActiveRecord::Migration[7.2]
   def up
     sql = "SELECT assay_type_label,technology_type_label,id FROM assays"
     records = ActiveRecord::Base.connection.select(sql)

@@ -1,4 +1,4 @@
-class CreateAdminDefinedRoleProjects < ActiveRecord::Migration
+class CreateAdminDefinedRoleProjects < ActiveRecord::Migration[7.2]
   def change
     create_table :admin_defined_role_projects do |t|
       t.integer :project_id

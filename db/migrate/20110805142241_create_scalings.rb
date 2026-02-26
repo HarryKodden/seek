@@ -1,4 +1,4 @@
-class CreateScalings < ActiveRecord::Migration
+class CreateScalings < ActiveRecord::Migration[7.2]
   def self.up
     create_table :scalings do |t|
       t.integer  "scale_id"
