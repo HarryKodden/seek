@@ -34,7 +34,7 @@ FROM base AS builder
 
 # Install build dependencies
 RUN apt-get update -qq && \
-    apt-get install -y --no-install-recommends build-essential cmake \
+    apt-get install -y --no-install-recommends build-essential cmake clang \
     libcurl4-gnutls-dev libmagick++-dev libmariadb-dev libpq-dev libreadline-dev \
     libsqlite3-dev libssl-dev libxml++2.6-dev libxslt1-dev libyaml-dev \
     python3.13-dev python3-setuptools python3-pip python3.13-venv && \
@@ -73,7 +73,7 @@ COPY docker/virtuoso_settings.docker.yml config/virtuoso_settings.yml
 RUN touch config/using-docker
 
 # SQLite Database (for asset compilation)
-RUN mkdir sqlite3-db
+RUN mkdir -p sqlite3-db
 COPY --chown=www-data:www-data docker/database.docker.sqlite3.yml config/database.yml
 
 # Create /var/www folder for bundler to compile dependencies into

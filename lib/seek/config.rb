@@ -413,7 +413,7 @@ module Seek
     end
 
     def omniauth_oidc_config
-      {
+      config = {
         callback_path: omniauth_callback_path('oidc'),
         issuer: omniauth_oidc_issuer,
         name: :oidc,
@@ -425,6 +425,12 @@ module Seek
           redirect_uri: omniauth_redirect_uri('oidc')
         }
       }
+
+      # Add scope if specified via environment variable
+      scope_env = ENV.fetch('OMNIAUTH_OIDC_SCOPE', 'openid email profile entitlement')
+      config[:scope] = scope_env.split unless scope_env.blank?
+
+      config
     end
 
     def omniauth_oidc_image
