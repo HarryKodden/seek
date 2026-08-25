@@ -249,6 +249,7 @@ omniauth_oidc_secret:
 omniauth_oidc_scope:
 omniauth_oidc_groups_enabled:
 omniauth_oidc_groups_claim:
+omniauth_oidc_groups_filter:
 omniauth_oidc_groups_institution_id:
   convert: :to_i
 ga4gh_trs_api_enabled:

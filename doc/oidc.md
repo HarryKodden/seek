@@ -34,19 +34,32 @@ Optional feature (default **off**): on login, values from a configured OIDC clai
    - `groups` — plain groups claim
    - `realm_access.roles` — Keycloak realm roles
 3. Request any scope needed so the claim appears (see **OIDC Scopes**).
-4. Optionally choose a **default Institution** for new memberships; otherwise SEEK uses the person's first institution (or the first Institution in the database).
+4. Optionally set a **Groups filter** (regex) to restrict which claim values map — see [Filtering which groups map](#filtering-which-groups-map).
+5. Optionally choose a **default Institution** for new memberships; otherwise SEEK uses the person's first institution (or the first Institution in the database).
 
 ### Behaviour (v1)
 
 For each group value in the claim:
 
-1. Derive a Project title: last segment after `:`, `/`, `#`, or `@`; otherwise the full string  
-   (e.g. `urn:mace:example.org:group:my-project` → `my-project`).
+1. Derive a Project title: drop any `#<authority>` suffix (AARC entitlements carry one), then take the last segment after `:`, `/`, or `@`; otherwise the full string  
+   (e.g. `urn:mace:surf.nl:sram:group:wur:my-project` → `my-project`; `urn:mace:surf.nl:sram:group:foo#sram.surf.nl` → `foo`).
 2. If no Project with that title exists → **create** it and make the user a **project administrator**.
 3. If the Project exists but has **no** administrators → make the user a **project administrator**.
 4. Otherwise → add the user as a normal **member** (if not already).
 
 Membership is **additive only**: leaving a group at the identity provider does **not** remove SEEK membership or demote administrators.
+
+### Filtering which groups map
+
+By default every claim value becomes a Project. Set **Groups filter** (`omniauth_oidc_groups_filter`) to a regular expression to map only the values that match; leave it blank to map all. Match on the *structure* of the entitlement rather than a fixed name, so it keeps working as groups are added or renamed.
+
+For SRAM, memberships are AARC-G069 entitlements shaped `urn:mace:surf.nl:sram:group:<org>:<co>[:<subgroup>]`. To map only **collaboration-level** memberships (one Project per collaboration, ignoring the organisation, subgroups, and SRAM platform groups):
+
+```
+^urn:mace:surf\.nl:sram:group:[^:]+:[^:]+$
+```
+
+An invalid pattern is logged and treated as "no filter" (all values map), so a typo never silently drops groups. Filtering only controls what is **created/added**; like the rest of the feature it never removes Projects or memberships.
 
 ### Settings reference
 
@@ -55,6 +68,7 @@ Membership is **additive only**: leaving a group at the identity provider does *
 | `omniauth_oidc_scope` | Space-separated OIDC scopes | `openid email profile` |
 | `omniauth_oidc_groups_enabled` | Enable group → Project sync | `false` |
 | `omniauth_oidc_groups_claim` | Claim path (dot-notation) | `entitlement` |
+| `omniauth_oidc_groups_filter` | Regex; only matching claim values map (blank = all) | (blank) |
 | `omniauth_oidc_groups_institution_id` | Institution for new memberships | (person's / first available) |
 
 ## Docker / environment examples

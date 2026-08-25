@@ -141,6 +141,7 @@ def load_seek_testing_defaults!
       Settings.defaults[:omniauth_oidc_scope] = 'openid email profile'
       Settings.defaults[:omniauth_oidc_groups_enabled] = false
       Settings.defaults[:omniauth_oidc_groups_claim] = 'entitlement'
+      Settings.defaults[:omniauth_oidc_groups_filter] = ''
 
       Settings.defaults[:ga4gh_trs_api_enabled] = true
 

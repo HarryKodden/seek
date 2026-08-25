@@ -251,6 +251,7 @@ def load_seek_config_defaults!
   Seek::Config.default :omniauth_oidc_scope, 'openid email profile'
   Seek::Config.default :omniauth_oidc_groups_enabled, false
   Seek::Config.default :omniauth_oidc_groups_claim, 'entitlement'
+  Seek::Config.default :omniauth_oidc_groups_filter, ''
   Seek::Config.default :omniauth_oidc_groups_institution_id, nil
 
   Seek::Config.default :openbis_enabled,false
