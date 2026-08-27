@@ -132,4 +132,55 @@ class OidcGroupProjectSyncTest < ActiveSupport::TestCase
     assert @person.member_of?(project)
     assert @person.is_project_administrator?(project)
   end
+
+  test 'project_title_for drops the AARC authority suffix' do
+    assert_equal 'surf-ram',
+                 Seek::Omniauth::OidcGroupProjectSync.project_title_for('urn:mace:surf.nl:sram:group:surf-ram#sram.surf.nl')
+  end
+
+  test 'filter_groups keeps only values matching the pattern' do
+    values = %w[
+      urn:mace:surf.nl:sram:group:wur
+      urn:mace:surf.nl:sram:group:wur:mycollab
+      urn:mace:surf.nl:sram:group:wur:mycollab:admins
+      urn:mace:surf.nl:sram:group:surf-ram#sram.surf.nl
+    ]
+    # SRAM collaboration-level entitlements only (exactly <org>:<co>)
+    pattern = '^urn:mace:surf\.nl:sram:group:[^:]+:[^:]+$'
+    assert_equal ['urn:mace:surf.nl:sram:group:wur:mycollab'],
+                 Seek::Omniauth::OidcGroupProjectSync.filter_groups(values, pattern)
+  end
+
+  test 'filter_groups with a blank pattern keeps everything' do
+    values = %w[a b c]
+    assert_equal values, Seek::Omniauth::OidcGroupProjectSync.filter_groups(values, '')
+  end
+
+  test 'filter_groups falls back to all values when the pattern is invalid' do
+    values = %w[a b]
+    assert_equal values, Seek::Omniauth::OidcGroupProjectSync.filter_groups(values, '[invalid(')
+  end
+
+  test 'groups filter maps only collaboration-level entitlements' do
+    entitlements = %w[
+      urn:mace:surf.nl:sram:group:wur
+      urn:mace:surf.nl:sram:group:wur:mycollab
+      urn:mace:surf.nl:sram:group:wur:mycollab:admins
+      urn:mace:surf.nl:sram:group:surf-ram#sram.surf.nl
+    ]
+    auth = auth_with_claim('eduperson_entitlement', entitlements)
+    with_config_values(omniauth_oidc_groups_enabled: true,
+                       omniauth_oidc_groups_claim: 'eduperson_entitlement',
+                       omniauth_oidc_groups_filter: '^urn:mace:surf\.nl:sram:group:[^:]+:[^:]+$',
+                       omniauth_oidc_groups_institution_id: @institution.id) do
+      assert_difference('Project.count', 1) do
+        Seek::Omniauth::OidcGroupProjectSync.call(person: @person, auth: auth)
+      end
+    end
+
+    assert Project.find_by(title: 'mycollab'), 'collaboration-level entitlement should create a Project'
+    assert_nil Project.find_by(title: 'wur'), 'org-level entitlement should be skipped'
+    assert_nil Project.find_by(title: 'admins'), 'subgroup entitlement should be skipped'
+    assert_nil Project.find_by(title: 'surf-ram'), 'platform-level entitlement should be skipped'
+  end
 end

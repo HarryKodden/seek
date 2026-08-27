@@ -129,6 +129,9 @@
           <%= admin_text_setting(:omniauth_oidc_groups_claim, Seek::Config.omniauth_oidc_groups_claim,
                                  'Groups claim path',
                                  'Dot-notation path into the OIDC userinfo/ID token claims, e.g. <code>entitlement</code>, <code>groups</code>, or <code>realm_access.roles</code>.') %>
+          <%= admin_text_setting(:omniauth_oidc_groups_filter, Seek::Config.omniauth_oidc_groups_filter,
+                                 'Groups filter (regex)',
+                                 'Optional regular expression. Only claim values matching it are mapped; blank maps all. Matches the whole claim value, so match on structure rather than a fixed name. Example (SRAM collaboration-level entitlements only, any names): <code>^urn:mace:surf\.nl:sram:group:[^:]+:[^:]+$</code>.') %>
           <%= admin_dropdown_setting(:omniauth_oidc_groups_institution_id,
                                      options_for_select(
                                        [['(use person\'s first institution / first available)', '']] +

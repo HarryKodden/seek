@@ -25,6 +25,8 @@ module Seek
       def call
         return unless Seek::Config.omniauth_oidc_groups_enabled
         return unless @person
+
+        Rails.logger.debug("[OIDC group sync] claim=#{Seek::Config.omniauth_oidc_groups_claim} filter=#{Seek::Config.omniauth_oidc_groups_filter.inspect} values=#{groups.inspect}")
         return if groups.empty?
 
         institution = resolve_institution
@@ -39,7 +41,7 @@ module Seek
       end
 
       def groups
-        @groups ||= normalize_groups(extract_claim(Seek::Config.omniauth_oidc_groups_claim))
+        @groups ||= filter_groups(normalize_groups(extract_claim(Seek::Config.omniauth_oidc_groups_claim)))
       end
 
       def project_title_for(group)
@@ -47,7 +49,11 @@ module Seek
       end
 
       def self.project_title_for(group)
-        title = group.to_s.split(%r{[:/\#@]}).last.to_s.strip
+        # Use the last path segment as the Project title. AARC entitlements (e.g. SRAM) can
+        # carry an optional "#<authority>" suffix (urn:...:group:foo#sram.surf.nl); drop it
+        # first so the title is the group name, not the authority host.
+        value = group.to_s.split('#').first.to_s.strip
+        title = value.split(%r{[:/@]}).last.to_s.strip
         title = group.to_s.strip if title.blank?
         title
       end
@@ -77,6 +83,24 @@ module Seek
         values.map(&:to_s).map(&:strip).reject(&:blank?).uniq
       end
 
+      # Optionally restrict which claim values become Projects. When
+      # omniauth_oidc_groups_filter is set, only values matching that regular
+      # expression are kept (blank, the default, keeps all). An invalid regex is
+      # logged and treated as "no filter" so a typo never silently drops groups.
+      #
+      # Example (SRAM collaboration-level entitlements only, any names):
+      #   ^urn:mace:surf\.nl:sram:group:[^:]+:[^:]+$
+      def self.filter_groups(values, pattern = Seek::Config.omniauth_oidc_groups_filter)
+        pattern = pattern.to_s.strip
+        return values if pattern.blank?
+
+        regexp = Regexp.new(pattern)
+        values.select { |value| regexp.match?(value) }
+      rescue RegexpError => e
+        Rails.logger.warn("OIDC group sync: ignoring invalid groups filter #{pattern.inspect}: #{e.message}")
+        values
+      end
+
       private
 
       def extract_claim(claim_path)
@@ -93,6 +117,10 @@ module Seek
         self.class.normalize_groups(raw)
       end
 
+      def filter_groups(values)
+        self.class.filter_groups(values)
+      end
+
       def resolve_institution
         if Seek::Config.omniauth_oidc_groups_institution_id.present?
           institution = Institution.find_by(id: Seek::Config.omniauth_oidc_groups_institution_id)
@@ -105,6 +133,8 @@ module Seek
       def sync_group(group, institution)
         title = project_title_for(group)
         return if title.blank?
+
+        Rails.logger.debug("[OIDC group sync] entitlement=#{group.inspect} -> project=#{title.inspect}")
 
         disable_authorization_checks do
           Project.transaction do
